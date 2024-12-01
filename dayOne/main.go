@@ -15,6 +15,23 @@ func diff(a, b int) int {
 	return a - b
 }
 
+func similarityCheck(a int, b []int) int {
+	var hits int
+	var score int
+	hits = 0
+	score = 0
+	for _, i := range b {
+		if a == i {
+			hits++
+		}
+		if i > a {
+			break
+		}
+	}
+	score = a * hits
+	return score
+}
+
 func main() {
 	var err error
 	var content string
@@ -62,8 +79,13 @@ func main() {
 	for i := 0; i < totalLines; i++ {
 		var dist int
 		dist = diff(left[i], right[i])
-		println(dist)
 		totalDist = totalDist + dist
 	}
 	println(totalDist)
+
+	var similarityScore int
+	for _, i := range left {
+		similarityScore = similarityScore + similarityCheck(i, right)
+	}
+	println(similarityScore)
 }
