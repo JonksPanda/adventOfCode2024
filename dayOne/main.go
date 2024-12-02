@@ -2,10 +2,10 @@ package main
 
 import (
 	"log"
-	"os"
 	"sort"
 	"strconv"
 	"strings"
+	"github.com/JonksPanda/adventOfCode2024/utils"
 )
 
 func diff(a, b int) int {
@@ -33,23 +33,17 @@ func similarityCheck(a int, b []int) int {
 }
 
 func main() {
-	var err error
-	var content string
 	var lines []string
-	var file []byte
 	var totalLines int
+	var err error
 
-	file, err = os.ReadFile("input.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
+	lines = utils.getFileRows("input.txt")
 
 	var left []int
 	var right []int
 
 	// to string
-	content = string(file)
-	lines = strings.Split(content, "\n")
+
 	totalLines = len(lines)
 	for _, line := range lines {
 		// 0 = left, 1 = right
