@@ -37,7 +37,7 @@ func main() {
 	var totalLines int
 	var err error
 
-	lines = utils.getFileRows("input.txt")
+	lines = utils.GetFileRows("input.txt")
 
 	var left []int
 	var right []int

@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func getFileRows(filePath string) []string {
+func GetFileRows(filePath string) []string {
 	var err error
 	var file []byte
 	var content string
